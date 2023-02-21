@@ -1,0 +1,57 @@
+{%extends 'blog/base.html' %}
+
+{%block a %}detail{%endblock%}
+
+{%block b%}
+<style>
+
+  .post-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .post {
+    width: calc(100% - 10px);
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+  margin-right: 10px;
+}
+
+.profile-picture img {
+  width: 100%;
+}
+
+</style>
+
+<div class="post-container">
+
+    <div class="post">
+      <div class="profile-picture">
+        <img src="{{ post.author.profile.image.url }}" alt="Profile Picture">
+      </div>
+      <h2 class="title">{{ object.title }}</h2>
+      <div class="meta">
+        <div class="author">
+          <span class="author-icon">🧔</span> <b>{{ object.author }}</b>
+        </div>
+        <div class="date">{{ object.date }}</div>
+      </div>
+      <div class="content">
+        <p>{{ object.content }}</p>
+      </div>
+    </div>
+
+</div>
+
+
+{%endblock%}

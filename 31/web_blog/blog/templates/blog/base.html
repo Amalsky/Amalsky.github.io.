@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/Main.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/nav.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/post.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/button.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/author.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/aligment.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'user/profile.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'user/crispy_forms.css' %}">
+  <link rel="shortcut icon" type="image/png" href="{% static 'blog/webicon.png' %}">
+
+
+
+
+
+  <title>{% block a %}{% endblock %}</title>
+    <style>
+    body {
+  background: linear-gradient(to right, #f2994a, #f2c94c);
+}
+  </style>
+
+  <div class="header">
+  <h1>My Social Network</h1>
+  <nav>
+        <a href="{% url 'blog-home'%}">Home</a> |
+        <a href="{% url 'profile' %}">Profile</a> |
+        <a href="#">Messages</a> |
+        <a href="#">Notifications</a>
+  </nav>
+{% if user.is_authenticated %}
+    <a href="{% url 'logout'%}">
+              <input type="submit" value="Log out">
+    </a>
+{% else %}
+  <form>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <input type="submit" value="Login">
+  </form>
+{% endif %}
+</div>
+</head>
+
+ <body>
+      <div class="container">
+        <div class="header">
+
+
+        </div>
+        <div class="post-form">
+          <textarea placeholder="What's on your mind?"></textarea>
+          <input type="submit" value="Post">
+        </div>
+      {% if messages %}
+            {% for message in messages %}
+               <br>
+               <div class="success-message">{{ message }}</div>
+
+            {% endfor %}
+     {% endif %}
+
+    {% block b %}{% endblock %}
+
+</body>
+
+
+
+

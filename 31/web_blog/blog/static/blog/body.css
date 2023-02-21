@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+}
+
+.post {
+  max-width: 600px;
+  margin: 30px auto;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 20px;
+  text-align: center;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.author {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.author-icon {
+  margin-right: 10px;
+}
+
+.date {
+  font-size: 16px;
+}
+
+.content {
+  padding: 20px;
+  font-size: 14px;
+}

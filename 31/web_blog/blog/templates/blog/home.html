@@ -1,0 +1,70 @@
+{%extends 'blog/base.html' %}
+
+{%block a %}home{%endblock%}
+
+{%block b%}
+<style>
+
+  .post-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .post {
+    width: calc(100% - 10px);
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+  margin-right: 10px;
+  }
+
+  .profile-picture img {
+  width: 100%;
+  }
+
+  a {
+  color: #007bff; /* Sets the link color to blue */
+  text-decoration: none; /* Removes the default underline */
+  }
+
+  a:hover {
+  text-decoration: underline; /* Underlines the link on hover */
+  }
+
+
+</style>
+
+<div class="post-container">
+  {% for post in posts %}
+    <div class="post">
+      <div class="profile-picture">
+        <img src="{{ post.author.profile.image.url }}" alt="Profile Picture">
+      </div>
+      <a class="a" href="{% url 'post-detail' post.id %}">
+        <h2 class="title">{{ post.title }}</h2>
+      </a>
+
+      <div class="meta">
+        <div class="author">
+          <span class="author-icon">🧔</span> <b>{{ post.author }}</b>
+        </div>
+        <div class="date">{{ post.date }}</div>
+      </div>
+      <div class="content">
+        <p>{{ post.content }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+{%endblock%}
